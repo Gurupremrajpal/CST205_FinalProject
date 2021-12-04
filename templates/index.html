@@ -1,0 +1,61 @@
+<!-- # Name- Guruprem Rajpal
+# Teammates- Prajwal Pisal and Shyam Patel
+# Team Number- 807
+# Date- 13 Nov 2021
+# Course Name- CST 205
+# Description-  This is a home page.-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{ bootstrap.load_css() }}
+      <title>Randome Image</title>
+  </head>
+<body style="background-color: black">
+
+    <div class="container">
+      <br><h3 style="color: white">CST 205 Random Picture Gallery</h3>
+​
+      <a href="{{ url_for('first_image', image_id=data[0]['id']) }}" >{{randomimg1}} {{data[0] ['title']}}</a><br>
+      <a href="{{ url_for('first_image', image_id=data[0]['id']) }}">
+        <img
+        src="/static/images/{{image1}}.jpg" width="250" class="img-fluid rounded"
+        alt="{{randomimg1}}"
+        >
+      </a>
+      <br><br>   
+
+      <a href="{{ url_for('second_image', image_id=data[1]['id']) }}" >{{randomimg2}} {{data[1] ['title']}}</a><br>
+      <a href="{{ url_for('second_image', image_id=data[1]['id']) }}">
+        <img
+        src="/static/images/{{image2}}.jpg" width="250" class="img-fluid rounded"
+        alt="{{randomimg2}}"
+        >
+      </a>
+      <br><br>
+​
+      <a href="{{ url_for('third_image', image_id=data[2]['id']) }}" >{{randomimg3}} {{data[2] ['title']}}</a><br>
+      <a href="{{ url_for('third_image', image_id=data[2]['id']) }}">
+        <img
+        src="/static/images/{{image3}}.jpg" width="250" class="img-fluid rounded"
+        alt="{{randomimg3}}"
+        >
+      </a>
+      <br><br>
+    </div>
+
+  <hr style="background-color: green">
+</body>
+
+<footer style="color: yellow">
+
+  By Guruprem Rajpal <br>
+  Teammates - Prajwal Pisal and Shyam Patel <br>
+  Team Number - 807 <br>
+  Date- 13 Nov 2021 <br>
+  Course Name- CST 205 <br>
+</footer>
+​
+</html>

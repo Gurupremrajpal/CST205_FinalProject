@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Sign Up Page </title>
+</head>
+<body>
+
+
+{{ bootstrap.load_css() }}
+
+<div class="container">
+  <ul class="list-group">
+    {% for item in database %}
+      <li class="list-group-item">First Name - {{ item.fname }}, Last Name- {{item.lname}}, Email- {{item.email}}, Phone Number- {{item.phonenumber}}, Zip- {{item.zipnumber}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+</body>
+</html>
