@@ -1,61 +1,160 @@
-<!-- # Name- Guruprem Rajpal
-# Teammates- Prajwal Pisal and Shyam Patel
-# Team Number- 807
-# Date- 13 Nov 2021
-# Course Name- CST 205
-# Description-  This is a home page.-->
+<!DOCTYPE html>
+<html>
+<head>
+<title> Survey Form </title>
+{{ bootstrap.load_css() }}
 
-<!doctype html>
-<html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {{ bootstrap.load_css() }}
-      <title>Randome Image</title>
-  </head>
-<body style="background-color: black">
+<!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
 
-    <div class="container">
-      <br><h3 style="color: white">CST 205 Random Picture Gallery</h3>
-​
-      <a href="{{ url_for('first_image', image_id=data[0]['id']) }}" >{{randomimg1}} {{data[0] ['title']}}</a><br>
-      <a href="{{ url_for('first_image', image_id=data[0]['id']) }}">
-        <img
-        src="/static/images/{{image1}}.jpg" width="250" class="img-fluid rounded"
-        alt="{{randomimg1}}"
-        >
-      </a>
-      <br><br>   
+<!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
 
-      <a href="{{ url_for('second_image', image_id=data[1]['id']) }}" >{{randomimg2}} {{data[1] ['title']}}</a><br>
-      <a href="{{ url_for('second_image', image_id=data[1]['id']) }}">
-        <img
-        src="/static/images/{{image2}}.jpg" width="250" class="img-fluid rounded"
-        alt="{{randomimg2}}"
-        >
-      </a>
-      <br><br>
-​
-      <a href="{{ url_for('third_image', image_id=data[2]['id']) }}" >{{randomimg3}} {{data[2] ['title']}}</a><br>
-      <a href="{{ url_for('third_image', image_id=data[2]['id']) }}">
-        <img
-        src="/static/images/{{image3}}.jpg" width="250" class="img-fluid rounded"
-        alt="{{randomimg3}}"
-        >
-      </a>
-      <br><br>
-    </div>
+            body{
+            color: blue;
+            background-color: gold;
+            padding: 2px;
+            }
 
-  <hr style="background-color: green">
+            .card{
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: rgba(255, 0, 0, 0.3) 0px 19px 38px, rgba(255, 0, 0, 0.22) 0px 15px 12px;
+            }
+
+            h1{
+            text-align: center;
+            text-shadow: 3px 3px 5px red;
+            }
+
+            #heading{
+            text-align: center;
+            }
+
+            #city,#lat,#long{
+            color: black;
+            text-shadow:4px 4px 6px  white;
+            }
+
+            #suggestedpass{
+            color: black;
+            text-shadow:4px 4px 6px  white;
+            }
+
+            #message{
+            text-align: center;
+            }
+
+            #submitBtn:hover{
+            box-shadow: rgba(255, 0, 0, 0.3) 0px 19px 38px, rgba(255, 0, 0, 0.22) 0px 15px 12px;
+            }
+
+            .card-body{
+            text-shadow: 3px 3px 5px yellowgreen;
+            }
+
+            #pass_again_error, #empty_user_name, #pass_error, #username_message {
+            text-shadow:4px 4px 6px  white;
+            }
+
+            #message{
+            text-shadow: 4px 4px 6px #198754;
+            }
+
+            #last_name, #first_name{
+            margin-right: 27px;
+            }
+
+            #email{
+            margin-right: 66px;
+            }
+
+            #zip{
+            margin-left: 38px;
+            }
+
+            #pass{
+            margin-left: 66px;
+            }
+
+            #pass_again{
+            margin-left: 6px;
+            }
+
+    </style>
+</head>
+<body>
+
+    <h1> Survey Form  </h1>
+
+        <div class="card" style="width: 24rem;">
+            <div class="card-body">
+            
+                <legend id="heading"> Lets Start!!</legend>
+            <form method="POST">
+                    {{ form.csrf_token }}
+                    
+                    <div id="first_name">
+                        {{ form.first_name.label }} <br>
+                        {{ form.first_name(size=32) }} </div>
+
+                    <br>
+                    <div id="last_name">
+                        {{ form.last_name.label }} <br>
+                        {{ form.last_name(size=32) }} </div>
+
+                    <br>
+
+                    <div id="email">
+                        {{ form.email_id.label }} <br>
+                        {{ form.email_id(size=32) }} </div>
+
+                    <br>
+
+                    <div id="phone_no">
+                        {{ form.Pno.label }} <br>
+                        {{ form.Pno(size=32) }} </div>
+
+                    <br>
+
+                    <div id="zip">
+                        {{form.zipNo.label}} <br>
+                        {{form.zipNo(size=32)}} </div>
+                    <br>
+
+                
+
+                City: <span id="city"> </span> 
+                <br>
+                Latitude: <span id="lat"> </span>
+                <br>
+                Longitude:  <span id="long"></span> <br>
+                <div id="zip_message" class="bg-danger text-light"> </div>
+                <br><br>
+
+                State: <select id="state">
+                    <option >Select:</option>
+                    </select> <br>
+
+                Select a County: <select id="county"></select><br> <br>
+
+
+
+                <input id=
+                "submitBtn" type="submit" class="btn btn-primary" value="Sign up!">
+                <br> <br>
+                <div id="message" class="bg-success text-light"> </div>
+            </form>
+            </div> 
+        </div>
+    
+
+  <script>
+
+
+  </script>
+
 </body>
-
-<footer style="color: yellow">
-
-  By Guruprem Rajpal <br>
-  Teammates - Prajwal Pisal and Shyam Patel <br>
-  Team Number - 807 <br>
-  Date- 13 Nov 2021 <br>
-  Course Name- CST 205 <br>
-</footer>
-​
 </html>
