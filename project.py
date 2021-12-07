@@ -103,7 +103,7 @@ def survey():
         store_detail(form.first_name.data, form.last_name.data, form.email_id.data, form.Pno.data, form.zipNo.data)
         print(plist)
         return redirect('/data_base')
-    return render_template('ind.html', form=form)
+    return render_template('index.html', form=form)
 
 
 
