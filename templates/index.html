@@ -33,14 +33,8 @@
             text-align: center;
             }
 
-            #city,#lat,#long{
-            color: black;
-            text-shadow:4px 4px 6px  white;
-            }
-
-            #suggestedpass{
-            color: black;
-            text-shadow:4px 4px 6px  white;
+            #city{
+            margin-right: 38px 
             }
 
             #message{
@@ -68,11 +62,11 @@
             }
 
             #email{
-            margin-right: 66px;
+            margin-right: 38px;
             }
 
             #zip{
-            margin-left: 38px;
+            margin-right: 38px;
             }
 
             #pass{
@@ -123,19 +117,17 @@
                         {{form.zipNo.label}} <br>
                         {{form.zipNo(size=32)}} </div>
                     <br>
+                    
 
+                    <div id="city">
+                        {{form.city.label}} <br>
+                        {{form.city(size=32)}} </div>
+                    <br>
                 
-
-                City: <span id="city"> </span> 
-                <br>
-                Latitude: <span id="lat"> </span>
-                <br>
-                Longitude:  <span id="long"></span> <br>
-                <div id="zip_message" class="bg-danger text-light"> </div>
-                <br><br>
 
                 State: <select id="state">
                     <option >Select:</option>
+                    
                     </select> <br>
 
                 Select a County: <select id="county"></select><br> <br>
