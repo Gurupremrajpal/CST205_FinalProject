@@ -1,3 +1,24 @@
+'''
+Course - CST 205
+Title - Multimedia Design & Programming
+Abstract - Survey and Weather application 
+Authors - Guruprem, Prajwal, Shyam
+Date- 11 December 2021
+
+Work Done-
+Guruprem- Login.html, index.html, dataase.html, project.py
+Prajwal- 
+Shyam- 
+
+Important code blocks - 
+
+Sources - 
+https://flask-login.readthedocs.io/en/latest/
+
+'''
+
+
+
 from flask import Flask, render_template, redirect, request, session, url_for, g
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
