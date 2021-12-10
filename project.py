@@ -15,6 +15,10 @@ Important code blocks -
 Sources - 
 https://flask-login.readthedocs.io/en/latest/
 
+
+GitHub- 
+https://github.com/Gurupremrajpal/CST205_FinalProject
+
 '''
 
 
@@ -51,7 +55,7 @@ class User:
 
 
 users = []
-users.append(User(id=1, username='admin', password='P@ssword'))
+users.append(User(id=1, username='user', password='P@ssword'))
 
 
 
@@ -76,8 +80,8 @@ def login():
         user = [x for x in users if x.username == username][0]
         if user and user.password == password:
             session['user_id'] = user.id
-            return redirect(url_for('survey'))
-        return redirect(url_for('/'))
+            return redirect(url_for('frontpg'))
+        return redirect(url_for('login'))
 
     return render_template('login.html')
 
@@ -105,18 +109,28 @@ class plist(FlaskForm):
         'City:',
         validators=[DataRequired()]
     )
+    state = StringField(
+        'State:',
+        validators=[DataRequired()]
+    )
+    county = StringField(
+        'County:',
+        validators=[DataRequired()]
+    )
     
 database = []
 
 
-def store_detail(my_firstname, my_lastname, my_email, my_phone, my_zip, my_city):
+def store_detail(my_firstname, my_lastname, my_email, my_phone, my_zip, my_city, my_state, my_county):
     database.append(dict(
         fname= my_firstname,
         lname= my_lastname,
         email= my_email,
-        phonenumber = my_phone,
-        zipnumber =my_zip,
-        cityy=my_city,
+        phonenumber= my_phone,
+        zipnumber= my_zip,
+        cityy= my_city,
+        statee= my_state,
+        countyy = my_county,
         date = datetime.today()
     ))
 
@@ -128,14 +142,22 @@ def survey():
         return redirect(url_for('/'))
     
     if form.validate_on_submit():
-        store_detail(form.first_name.data, form.last_name.data, form.email_id.data, form.Pno.data, form.zipNo.data, form.city.data)
+        store_detail(form.first_name.data, form.last_name.data, form.email_id.data,
+                     form.Pno.data, form.zipNo.data, form.city.data, form.state.data, form.county.data)
         print(plist)
         return redirect('/data_base')
     
     return render_template('index.html', form=form)
 
 
+@app.route('/front', methods =('GET', 'POST'))
+def frontpg():
+    return render_template('front.html')
 
+
+@app.route('/weather', methods=('GET', 'POST'))
+def weatherpg():
+    return render_template('weather.html')
 
 @app.route('/data_base')
 def db():

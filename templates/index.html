@@ -124,20 +124,20 @@
                         {{form.city(size=32)}} </div>
                     <br>
                 
+                    <div id="state">
+                        {{form.state.label}} <br>
+                        {{form.state(size=32)}} </div>
+                    <br>
 
-                State: <select id="state">
-                    <option >Select:</option>
-                    
-                    </select> <br>
+                    <div id="county"> 
+                        {{form.county.label}} <br>
+                        {{form.county(size=32)}} </div>
+                    <br>
 
-                Select a County: <select id="county"></select><br> <br>
-
-
-
-                <input id=
-                "submitBtn" type="submit" class="btn btn-primary" value="Sign up!">
+                &nbsp;<input id=
+                "submitBtn" type="submit" class="btn btn-primary" value="Finish!"> &nbsp; &nbsp;
+                <a href="{{ url_for('frontpg')}}" class="btn btn-primary">Home</a>
                 <br> <br>
-                <div id="message" class="bg-success text-light"> </div>
             </form>
             </div> 
         </div>
