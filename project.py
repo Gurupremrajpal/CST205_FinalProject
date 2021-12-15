@@ -6,15 +6,15 @@ Authors - Guruprem, Prajwal, Shyam
 Date- 11 December 2021
 
 Work Done-
-Guruprem- Login.html, index.html, dataase.html, project.py
-Prajwal- 
+Guruprem- login.html, index.html, dataase.html, front.html, project.py
+Prajwal- weather.html, project.py
 Shyam- 
 
 Important code blocks - 
 
 Sources - 
 https://flask-login.readthedocs.io/en/latest/
-
+https://openweathermap.org
 
 GitHub- 
 https://github.com/Gurupremrajpal/CST205_FinalProject
@@ -145,7 +145,7 @@ def survey():
         store_detail(form.first_name.data, form.last_name.data, form.email_id.data,
                      form.Pno.data, form.zipNo.data, form.city.data, form.state.data, form.county.data)
         print(plist)
-        return redirect('/data_base')
+        return redirect('/end')
     
     return render_template('index.html', form=form)
 
@@ -158,6 +158,10 @@ def frontpg():
 @app.route('/weather', methods=('GET', 'POST'))
 def weatherpg():
     return render_template('weather.html')
+
+@app.route('/end', methods=('GET', 'POST'))
+def end():
+    return render_template('end.html')
 
 @app.route('/data_base')
 def db():
