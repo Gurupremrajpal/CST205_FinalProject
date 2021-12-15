@@ -8,9 +8,10 @@ Date- 11 December 2021
 Work Done-
 Guruprem- login.html, index.html, dataase.html, front.html, project.py
 Prajwal- weather.html, project.py
-Shyam- 
+Shyam- jobindex.html
 
 Important code blocks - 
+Important code blocks are class user, store_details
 
 Sources - 
 https://flask-login.readthedocs.io/en/latest/
