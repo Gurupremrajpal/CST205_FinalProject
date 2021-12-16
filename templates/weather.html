@@ -1,13 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title> Welcome Page </title>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<title>
+		Weather
+	</title>
+	<!-- vendor css -->
+	<link rel="stylesheet" href="/static/assets/css/style.css">
+
 </head>
 <body>
-
-    <h1> Welcome to weather page</h1> 
-
+<div class="col-sm-12">
+	<div class="card">
+		<div class="card-body">
+			<h5>Weather</h5>
+			
+			<hr>
+			<div class="row">
+				
+				<div class="col-md-6">
+					{% if data %}
+					<div  style="color: green;" ><h6>{{message}}</h6></div>
+						{% else %}
+					<div  style="color: red;" ><h6>{{message}}</h6></div>
+					{% endif %}
+					<form class="was-validated" action="{{ url_for("weatherpg")}}" method="post">
+						<div class="form-group">
+							<label for="City">City</label>
+							<input type="text" class="form-control" id="city" name="city" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="Country">Country</label>
+							<input type="text" class="form-control" id="country" name="country" placeholder="">
+						</div>
+						<div class="form-group">
+							<div class="col-sm-10">
+								<button type="submit" class="btn  btn-primary">Get Weather</button>
+								<a href="{{ url_for("frontpg")}}">HOME</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			 	<div class="col-md-6">
+					<form class="was-validated">
+						<div class="form-group">
+						</div>
+						<div class="custom-file">
+							<label>Temperature : {{Weather_data[0]}}</label>
+						</div>
+						<div class="custom-file">
+							<label>humidity : {{Weather_data[1]}}</label>
+						</div>
+						<div class="custom-file">
+							<label>Wind Speed : {{Weather_data[2]}}</label>
+						</div>
+					</form>
+				</div>  
+			</div>
+		</div>
+	</div>
+</div>
 </body>
-</html> 
+</html>
