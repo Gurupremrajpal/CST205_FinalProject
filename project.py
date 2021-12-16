@@ -156,9 +156,46 @@ def frontpg():
     return render_template('front.html')
 
 
-@app.route('/weather', methods=('GET', 'POST'))
+@app.route('/weatherpg', methods=('GET', 'POST'))
 def weatherpg():
-    return render_template('weather.html')
+    Weather_data = []
+    try:
+        print("weatherpg")
+        if request.method == "POST":
+            print("POST REQUEST")
+            _City = request.form['city']    # Getting values from form
+            _Country = request.form['country']      # Getting values from form
+            print("*****************")
+            print(_City)
+            print(_Country)
+            # calling the Weather_get Function to get Weather deatials
+            Weather_data = Weather_get(_City, _Country)
+            print("Weather_data : ", Weather_data)
+    except:
+        Weather_data = []
+        print("Exception : ")
+        # Render the HTML Page and parsing the Weather Data
+        return render_template("weather.html", Weather_data=Weather_data, data=1, message='Your Entered Wrong City Name')
+
+    return render_template("weather.html", Weather_data=Weather_data, data=0, message='')
+
+
+def Weather_get(_City, _Country):
+    Weather_data = []       # Array for store Weather data
+    url = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=57f9401ec88509d93821bc0cfeabd3c2&q=' + \
+        str(_City)     # Creat API url based by the enterd data
+    # Requseting Weather detials frome the API
+    weather_data = requests.get(url).json()
+    # print(weather_data['main']['temp'])
+    # print(weather_data['main']['humidity'])
+    # print(weather_data['wind']['speed'])
+    # Filltering the response data and add to the list
+    print("*****************")
+    print("Wether Data 1")
+    Weather_data = Weather_data + [str(weather_data['main']['temp']), str(
+        weather_data['main']['humidity']), str(weather_data['wind']['speed'])]
+
+    return Weather_data
 
 @app.route('/end', methods=('GET', 'POST'))
 def end():
