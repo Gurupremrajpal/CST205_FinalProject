@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Job application Page </title>
+  
+  <style>
+
+    body{
+    color: blue;
+    background-color: gold;
+    padding: 2px;
+    }
+
+    .card{
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: rgba(255, 0, 0, 0.3) 0px 19px 38px, rgba(255, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    h1{
+    text-align: center;
+    text-shadow: 3px 3px 5px red;
+    }
+
+    #heading{
+    text-align: center;
+    }
+
+    #city{
+    margin-right: 38px 
+    }
+
+    #message{
+    text-align: center;
+    }
+
+    #submitBtn:hover{
+    box-shadow: rgba(255, 0, 0, 0.3) 0px 19px 38px, rgba(255, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    .card-body{
+    text-shadow: 3px 3px 5px yellowgreen;
+    }
+
+    #pass_again_error, #empty_user_name, #pass_error, #username_message {
+    text-shadow:4px 4px 6px  white;
+    }
+
+    #message{
+    text-shadow: 4px 4px 6px #198754;
+    }
+
+    #last_name, #first_name{
+    margin-right: 27px;
+    }
+
+    #email{
+    margin-right: 38px;
+    }
+
+    #zip{
+    margin-right: 38px;
+    }
+
+    #pass{
+    margin-left: 66px;
+    }
+
+    #pass_again{
+    margin-left: 6px;
+    }
+
+</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  </head>
+  <body class="bg-success" style="--bs-bg-opacity: .66;">
+    <header class="rounded-top p-2 m-2">
+      <h1> Job application Form </h1>
+    </header>
+    <fieldset  class="rounded-bottom bg-success border p-2 m-2" style="--bs-bg-opacity: .33;">
+      <legend >Profile</legend>
+      Major of Study: <input type="text">
+    <br> 
+  
+    Concentration: <input type="text">
+    <br> 
+
+    Job Postion: <input type="text">
+    <br> 
+
+    Expected Salary: $<input type="Number">
+    <br> 
+    
+    Year of work experience: <input type ="Number">
+    <br>
+    <br>
+      Prefer Location for work 
+    <br>
+    State: <select id="state" type="text">
+        <option>Select:</option>
+      </select>
+      <br>
+      Select a County: <select id="county"></select>
+      <br>
+
+      Zip Code: <input id="zip" type="text"><span id="vzip"></span>
+      <br>
+      City: <span id="city"></span>
+      <br>
+      Latitude: <span id="lati"></span>
+      <br>
+      Longitude: <span id="longi"></span>
+      <br><br>
+      
+
+      Desired Username For Company: <input id="userName" type="text"><span id="avail"></span><br>
+      
+      Choose Password: <input id="password" type="password"><span id="suggest"></span><br>
+      
+      Retype Password Again: <input id="passwordRetype" type="password"><br>
+
+      <input id="button" type="submit" value="Finish"><span id="sValid"></span>
+    </fieldset>
+    <script src="script.js"></script>
+  </body>
+</html>
